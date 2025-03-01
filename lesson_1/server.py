@@ -64,6 +64,26 @@ alt="здесь должна была быть картинка, но не на�
     ]
     return ''.join(data)
 
+@app.route('/choice/<planet_name>')
+def choice(planet_name):
+    data = [
+        """
+<link
+rel="stylesheet" 
+href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+crossorigin="anonymous"
+>
+        """,
+        f"<h1>Моё предложение: {planet_name}</h1>",
+        "<h3>Эта планета близка к Земля;</h3>",
+        "<div>На ней много необходимых ресурсов;</div>",
+        "<div>На ней есть вода и атмосфера;</div>",
+        "<div>На ней есть небольшое магнитное поле;</div>",
+        "<div>Наконец, она просто красива!</div>"
+    ]
+    
+    return ''.join(data)
+
 @app.route('/form_sample', methods=['POST', 'GET'])
 def form_sample():
     if request.method == 'GET':
