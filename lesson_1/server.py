@@ -84,6 +84,25 @@ crossorigin="anonymous"
     
     return ''.join(data)
 
+@app.route('/results/<nickname>/<int:level>/<float:rating>')
+def results(nickname, level, rating):
+    data = [
+        """
+<link
+rel="stylesheet" 
+href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+crossorigin="anonymous"
+>
+        """,
+        "<h2>Результат отбора</h2>",
+        f"<div>Претендент на участие в миссии {nickname}</div>",
+        f"<div>Поздравляю ваш рейтинг после {level} этапа отбора</div>",
+        f"<div>составляет {rating}!</div>",
+        "<div>Желаем удачи!</div>"
+    ]
+    
+    return ''.join(data)
+
 @app.route('/form_sample', methods=['POST', 'GET'])
 def form_sample():
     if request.method == 'GET':
