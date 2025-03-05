@@ -28,6 +28,23 @@ def training(prof):
         prof=prof_type
     )
 
+@app.route("/list_prof/<sp_style>")
+def list_prof(sp_style):
+    list_prof = [
+        "пилот",
+        "строитель",
+        "врач",
+    ]
+    
+    if sp_style not in {"ol", "ul"}:
+        sp_style = "None"
+    
+    return render_template(
+        "list_prof.html",
+        sp_style=sp_style,
+        list_prof=list_prof
+    )
+
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=8080, debug=True)
