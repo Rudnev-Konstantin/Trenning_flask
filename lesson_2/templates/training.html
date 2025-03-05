@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if prof == "engineering" %}
+        <h2 class="text-center">Инженерные тренажеры</h2>
+    {% elif prof == "ology" %}
+        <h2 class="text-center">Научные симуляторы</h2>
+    {% endif %}
+
+    <img
+        src="{{ image_path }}"
+        alt="здесь должна была быть картинка, но не нашлась" 
+    />
+{% endblock %}
