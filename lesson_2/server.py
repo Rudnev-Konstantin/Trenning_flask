@@ -1,23 +1,18 @@
 from flask import Flask
 from flask import render_template
 
+
 app = Flask(__name__)
 
 
-@app.route('/')
-@app.route('/index')
-def index():
+@app.route("/<title>")
+@app.route("/index/<title>")
+def index(title):
     return render_template(
-        'index.html',
+        "index.html",
+        title=title
         )
 
-@app.route('/training/<prof>')
-def index():
-    return render_template(
-        'training.html',
-        title="",
-        title2 = ""
-        )
 
-if __name__ == '__main__':
-    app.run(port=8080, host='127.0.0.1')
+if __name__ == "__main__":
+    app.run(host="127.0.0.1", port=8080)
