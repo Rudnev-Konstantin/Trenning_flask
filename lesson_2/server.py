@@ -83,6 +83,23 @@ def emergency_access_form():
         emblem_path=url_for("static", filename="images/MARS-2-7.png")
         )
 
+@app.route("/distribution")
+def distribution():
+    sp_astronauts = [
+        "Ридли Скотт",
+        "Энди Уир",
+        "Марк Уотни",
+        "Венката Капур",
+        "Тедди Сандерс",
+        "Шон Бин",
+        "Кто-то Ещё"
+    ]
+    
+    return render_template(
+        "distribution.html",
+        sp_astronauts=sp_astronauts
+    )
+
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=8080, debug=True)
