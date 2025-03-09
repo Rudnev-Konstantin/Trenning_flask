@@ -100,6 +100,21 @@ def distribution():
         sp_astronauts=sp_astronauts
     )
 
+@app.route("/table/<gender>/<int:age>")
+def table(gender, age):
+    color = [250, 50, 20] if gender == "male" else [0, 100, 250]
+    if age >= 21:
+        transparent, martian = 1, url_for("static", filename="images/martians/big.png")
+    else:
+        transparent, martian = 0.5, url_for("static", filename="images/martians/little.png")
+    
+    return render_template(
+        "table.html",
+        color = "rgba" + str(tuple(color + [transparent])),
+        style_path=url_for("static", filename="css/style_table.css"),
+        image_path = martian
+    )
+
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=8080, debug=True)
